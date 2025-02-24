@@ -7,7 +7,14 @@ const port = process.env.PORT || 5000
 
 const stripe = require('stripe')(process.env.Stripe_Secret_Key)
 // middleware
-app.use(cors())
+app.use(cors({
+    origin: [
+        // 'http://localhost:5173',
+        'bistro-boss-dff47.firebaseapp.com',
+        'bistro-boss-dff47.web.app'
+    ],
+    credentials: true
+}))
 app.use(express.json())
 
 
@@ -193,7 +200,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Welcome to bistro boss restaurant!')
 })
 
 app.listen(port, () => {
