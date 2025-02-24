@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000
 const stripe = require('stripe')(process.env.Stripe_Secret_Key)
 // middleware
 app.use(cors({
-    origin: "https://bistro-boss-dff47.firebaseapp.com", // Allow only this origin
+    origin: ["https://bistro-boss-dff47.web.app/", "https://bistro-boss-dff47.firebaseapp.com"], // Allow only this origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
     allowedHeaders: ["Content-Type", "Authorization"] // Allowed headers
 }))
